@@ -19,16 +19,24 @@ function Header({cart, isSignUp, isSignIn}) {
                 </div>
 
                 <nav className="flex gap-6">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/menu">Menu</NavLink>
+                    <NavLink to="/" className="hover:underline">Home</NavLink>
+                    <NavLink to="/menu" className="hover:underline">Menu</NavLink>
 
-                    <a href="#about">About</a>
+                    <a href="#about" className="hover:underline">About</a>
+                    <NavLink
+                        to="/dashboard"
+                        className="hover:underline"
+                        >
+                        Dashboard
+                    </NavLink>
 
-                    <p className="flex gap-2 cursor-pointer">
+                    <NavLink className="flex gap-2 cursor-pointer"
+                         to="/cart"
+                    >
                         <ShoppingCart /> {cart}
-                    </p>
+                    </NavLink>
 
-                    <NavLink to="/signup">Sign up</NavLink>
+                    <NavLink to="/signup" className="hover:underline">Sign up</NavLink>
                 </nav>
             </div>
         </header>

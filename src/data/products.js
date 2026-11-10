@@ -1,8 +1,3 @@
-import MilkChocoMocha from "/images/MilkChocoMocha.jpg"
-import IcedCaramelLatte from "/images/IcedCaramelLatte.jpg"
-import ChocolateMilkshake from "/images/ChocolateMilkshake.jpg"
-import NutellaMilkshake from "/images/NutellaMilkshake.jpg"
-
 const products = {
     data: [
     {
@@ -41,4 +36,4 @@ const products = {
 total: 4
 }
 
-export default products
+export default products;

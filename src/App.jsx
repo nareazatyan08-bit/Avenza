@@ -5,10 +5,12 @@ import About from './components/about/About'
 import Home from './pages/home/Home'
 import SignUp from './pages/signInSignUp/SignUp'
 import SignIn from './pages/signInSignUp/SignIn'
+import ProductDetails from './pages/productDetails/ProductDetails'
+import Cart from './pages/cart/Cart'
 
 import DashboardLayout from "./components/dashboard/DashboardLayout";
 import Dashboard from './pages/Dashboard';
-import Profile from './pages/Pofile';
+import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 
 
@@ -18,6 +20,10 @@ function App() {
     function addToCart(product) {
         setCart(prev => [...prev, product])
     }
+
+     function removeFromCart(product) {
+      setCart(prev => prev.filter(item => item.id !== product.id))
+  }
 
     return (
         <Routes>
@@ -33,14 +39,16 @@ function App() {
                 path="/signin"
                 element={<SignIn cartLength={cart.length} />}
             />
-            {/* <Route
+            <Route
                 path="/dashboard"
-                element={<DashboardLayout cart={cart.length} />}
+                element={<DashboardLayout cartLength={cart.length}/>}
             >
                 <Route index element={<Dashboard />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="settings" element={<Settings />} />
-            </Route> */}
+            </Route>
+            <Route path="/products/:productId" element={<ProductDetails onAddToCart={addToCart}/>} />
+            <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart}/>}/>
         </Routes>
     )
 }
