@@ -2,7 +2,7 @@ import ProductCard from '../productCard/ProductCard'
 import { useState, useEffect } from 'react'
 import { fetchProducts } from '../../api/productsApi';
 import Loader from "../loader/Loader";
-function ProductList({onAddToCart}){
+function ProductList(){
     const [productData, setProductdata] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -38,7 +38,7 @@ function ProductList({onAddToCart}){
                         <ProductCard
                             product = {item}
                             key = {item.id}
-                            onAddToCart = {onAddToCart}
+                            
                         />
                     ))}
             </div>

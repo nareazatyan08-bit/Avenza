@@ -7,15 +7,15 @@ import ProductList from '../../components/productList/ProductList'
 import ContactForm from '../../components/contactForm/ContactForm'
 import About from '../../components/about/About'
 
-function Home({addToCart, cartLength}) {
+function Home({addToCart}) {
     
 
     return (
         
         <div className="min-h-screen">
-            <Hero cart={cartLength} />
+            <Hero/>
             <ProductList onAddToCart={addToCart} />
-            <About cart={cartLength} />
+            <About/>
             <ContactForm />
             <Footer />
         

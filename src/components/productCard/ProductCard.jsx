@@ -1,6 +1,9 @@
 import {Link, useLocation} from 'react-router-dom'
-function ProductCard({product, onAddToCart, removeFromCart}){
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+function ProductCard({product}){
     const location = useLocation()
+    const {addToCart, removeFromCart} = useContext(CartContext);
     const isCartPage = location.pathname === '/cart'
 
 
@@ -21,14 +24,14 @@ function ProductCard({product, onAddToCart, removeFromCart}){
                     e.preventDefault()
                     removeFromCart(product)
                 }}
-                className='font-baloo2 rounded-3xl mt-4 w-full bg-[#4C2304] text-[#D3C6B1] px-4 py-2 mt-2 h-9 cursor-pointer hover:scale-105 active:scale-85 transition-all duration-200'>Remove </button>
+                className='font-baloo2 rounded-3xl w-full bg-[#4C2304] text-[#D3C6B1] px-4 py-2 mt-2 h-9 cursor-pointer hover:scale-105 active:scale-85 transition-all duration-200'>Remove </button>
             ): 
                 <button 
                  onClick={(e) => {
                     e.preventDefault()
-                    onAddToCart(product)
+                    addToCart(product)
                 }}
-                className="font-baloo2 rounded-3xl cursor-pointer mt-2 px-4 py-2 ml-30 bg-[#4C2304] text-white">Add to cart</button>
+                className="font-baloo2 rounded-3xl cursor-pointer mt-4 px-4 py-2 ml-30 bg-[#4C2304] text-white">Add to cart</button>
             }
             </div>
         </div>

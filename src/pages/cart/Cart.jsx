@@ -1,8 +1,13 @@
 import ProductCard from "../../components/productCard/ProductCard";
 import {Link} from 'react-router-dom'
-function Cart({cart, removeFromCart}){
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-    if (cart.length === 0) {
+function Cart(){
+  const {cartCount, cart, removeFromCart} = useContext(CartContext);
+
+
+    if (cartCount === 0) {
     return (
       <section className="mx-auto max-w-4xl p-10 text-center">
         <h1 className="text-3xl text-[#4C2304] font-bold">
@@ -25,7 +30,7 @@ function Cart({cart, removeFromCart}){
 
     return(
         <div className="flex gap-10">
-            {cart.map(item => <ProductCard product={item} removeFromCart={removeFromCart}/>)}
+            {cart.map(item => <ProductCard product={item} />)}
         </div>
     )
 }

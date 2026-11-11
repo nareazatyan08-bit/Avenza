@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Header from '../../components/header/Header'
 
-function SignUp({cartLength}) {
+function SignUp() {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -81,7 +81,7 @@ function SignUp({cartLength}) {
     return (
         
         <div className="min-h-screen bg-[#F5EFE6] flex items-center justify-center px-4 py-5">
-            <Header cart={cartLength} isSignUp={true} />
+            <Header isSignUp={true} />
             <form
                 onSubmit={handleSubmit}
                 className="bg-white w-full max-w-xl p-8 md:p-12 rounded-3xl shadow-xl flex flex-col gap-5"

@@ -1,7 +1,10 @@
 import {ShoppingCart} from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-function Header({cart, isSignUp, isSignIn}) {
+function Header({isSignUp, isSignIn}) {
+    const { cartCount } = useContext(CartContext);
     const location = useLocation();
     
     const isAuthPage =
@@ -33,7 +36,7 @@ function Header({cart, isSignUp, isSignIn}) {
                     <NavLink className="flex gap-2 cursor-pointer"
                          to="/cart"
                     >
-                        <ShoppingCart /> {cart}
+                        <ShoppingCart /> {cartCount}
                     </NavLink>
 
                     <NavLink to="/signup" className="hover:underline">Sign up</NavLink>

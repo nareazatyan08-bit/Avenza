@@ -2,7 +2,7 @@ import CoffeeHero from "/images/CoffeeHero.jpg";
 import Header from "../header/Header";
 
 
-function Hero({cart}){
+function Hero(){
     return (
        <section className="relative min-h-screen">
         
@@ -15,7 +15,7 @@ function Hero({cart}){
             <div className="absolute inset-0 bg-black/30 z-0"></div>
 
             <div className="relative z-50">
-                <Header cart={cart}/>
+                <Header/>
             </div>
             <div className="relative z-10 ml-2 pt-4">
                 <h1 className="relative z-10 text-white text-5xl font-bold text-left ml-20 pt-40 font-['Baloo',sans-serif]">
